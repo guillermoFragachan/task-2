@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="a" onclick=""   >dasda</a>
+    <img id="img">
+
+
+<script>
+    
+
+//     function click(){
+//         let a = document.getElementById('a');
+//         a.click();
+//     }
+//     function download(event) {
+//         console.log()
+//         let a = document.getElementById('a');
+//         a.addEventListener("click",function(){
+//             console.log("Dsadas")
+//      window.event.preventDefault();
+// },false);
+//         a.href = "a-video-company.s3.amazonaws.com/origin/a_video.mp4";
+//         a.download = "a_video.mp4";
+//         // a.click();
+        
+//     }
+    window.onload = function () {
+        fetch("https://upload.wikimedia.org/wikipedia/commons/9/98/Pet_dog_fetching_sticks_in_Wales-3April2010.jpg", {
+            method: "GET",
+            mode: 'cors',
+            // headers: {
+            //     "Access-Control-Allow-Origin": "*",
+            //     "Access-Control-Allow-Headers": "*",
+            //     "Content-Type": "image/jpeg"
+            // }
+        })
+      .then(response => response.blob())
+      .then(blob => {
+        
+        const blobURL = URL.createObjectURL(blob);
+        let a = document.getElementById('a');
+        let img = document.getElementById('img');
+
+        a.addEventListener("click",function(){
+            console.log(blobURL)
+        // window.event.preventDefault();
+        a.click()
+    });
+        console.log(a)
+
+
+        a.innerHTML="123";
+        a.href = blobURL;
+        a.download = "img.jpg";
+        // img.src=blobURL;
+        
+
+        if (name && name.length) a.download = name;
+        document.body.appendChild(a);
+      })
+        }
+
+      
+
+</script>
+</body>
+</html>
